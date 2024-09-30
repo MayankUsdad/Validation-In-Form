@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <script>
+        function myfunction() {
+            var name = document.myform.myname.value;
+            if (name == null || name == "") {
+                x = document.getElementById("myid");
+                x.innerHTML = "*Enter Name";
+                x.style.color = "red";
+                myform.myname.style.borderColor = "red";
+                return false;
+            }
+            if(name !== null || name !== ""){
+                x = document.getElementById("myid");
+                x.innerHTML = "";
+                myform.myname.style.borderColor = "green";
+            }
+  
+            var no = document.myform.myno.value;
+            if (no == null || no == "") {
+                x = document.getElementById("myid1");
+                x.innerHTML = "*Enter Number";
+                x.style.color = "red";
+                myform.myno.style.borderColor = "red";
+                return false;
+            } else if (isNaN(no)) {
+                x = document.getElementById("myid1");
+                x.innerHTML = "* Enter Digit";
+                x.style.color = 'red';
+                myform.myno.style.borderColor = "red";
+                return false;
+            } else if (myform.myno.value.length != 10) {
+                x = document.getElementById("myid1");
+                x.innerHTML = "Enter 10 Digit";
+                x.style.color = "red";
+                myform.myno.style.borderColor = "red";
+                return false;
+            }if(myform.myno.value !== null || myform.myno.value !== ""){
+                x = document.getElementById("myid1");
+                x.innerHTML = "";
+                myform.myno.style.borderColor = "green";
+            }
+            if ((document.myform.gender[0].checked == false) && (document.myform.gender[1].checked == false)) {
+                x = document.getElementById("myid2");
+                x.innerHTML = "* Select Your Gender";
+                x.style.color = 'red';
+                y = document.getElementById("g1");
+                y.style.border = '3px solid red';
+                return false;
+            }
+            if(myform.gender.value !== null || myform.gender.value !== ""){
+                x = document.getElementById("myid2");
+                x.innerHTML = "";
+                y = document.getElementById("g1");
+                y.style.border = '3px solid green';
+            }
+            if ((document.myform.hobby[0].checked == false) &&
+                (document.myform.hobby[1].checked == false) &&
+                (document.myform.hobby[2].checked == false)) {
+                x = document.getElementById("myid3");
+                x.innerHTML = "*Select Hobby";
+                x.style.color = "red";
+                y = document.getElementById("h1");
+                y.style.border = '3px solid red';
+                return false;
+            }
+            if(myform.hobby.value !== null || myform.hobby.value !== ""){
+            x = document.getElementById("myid3");
+            x.innerHTML = "";
+            y = document.getElementById("h1");
+            y.style.border = "3px solid green";
+            }
+
+            if(document.myform.city.value == -1){
+                x = document.getElementById("myid4");
+                x.innerHTML = "*Select City";
+                x.style.color = 'red';
+                y = document.getElementById("c1");
+                y.style.border = "3px solid red";
+                return false;
+            }
+            else{
+                x = document.getElementById("myid4");
+                x.innerHTML = "";
+                y = document.getElementById("c1");
+                y.style.border = "3px solid green";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myform" onsubmit="return myfunction()">
+        Enter Name : <input type="text" name="myname">
+        <label id="myid"></label><br><br>
+        Mobile No. : <input type="text" name="myno">
+        <label id="myid1"></label><br><br>
+        Gender : <span id="g1"><input type="radio" name="gender" value="M">Male
+        <input type="radio" name="gender" value="F">Female
+        <label id="myid2"></label></span><br><br>
+        Hobby :<span id="h1"> <input type="checkbox" name="hobby" value="Reading">Reading
+        <input type="checkbox" name="hobby" value="Writing">Writing
+        <input type="checkbox" name="hobby" value="Dancing">Dancing
+        <label id="myid3"></label></span><br><br>
+        City :<span id="c1"> <select name="city">
+            <option value="-1" selected>---Select City---</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Surat">Surat</option>
+            <option value="Rajkot">Rajkot</option>
+        </select>
+        <label id="myid4"></label></span><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>
